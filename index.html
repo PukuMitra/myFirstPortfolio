@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Pulakita Mitra – AI &amp; Data Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #dde2ef;
+        --ink: #17204a;
+        --muted: #4b5580;
+        --accent: #2b45ff;
+        --panel: rgba(221, 226, 239, 0.84);
+        color-scheme: light;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #1a1f3d;
+          --ink: #eef0fb;
+          --muted: #a9b1d8;
+          --accent: #f2d45c;
+          --panel: rgba(26, 31, 61, 0.84);
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #1a1f3d;
+        --ink: #eef0fb;
+        --muted: #a9b1d8;
+        --accent: #f2d45c;
+        --panel: rgba(26, 31, 61, 0.84);
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          400 1.0625rem/1.6 "Instrument Sans",
+          system-ui,
+          sans-serif;
+      }
+      canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        display: block;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.5rem 1rem;
+        font-weight: 500;
+      }
+      nav a {
+        color: var(--ink);
+        text-decoration: none;
+        margin-left: 1.25rem;
+      }
+      nav a:first-child {
+        margin: 0;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      section {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 6rem 1.5rem;
+      }
+      section.r {
+        justify-content: flex-end;
+      }
+      .box {
+        max-width: 32rem;
+      }
+      h1,
+      h2 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        margin: 0 0 1.25rem;
+      }
+      h1 {
+        font-size: clamp(3.2rem, 10vw, 7.5rem);
+      }
+      h2 {
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+      }
+      h3 {
+        font-size: 1.05rem;
+        margin: 1.1rem 0 0.15rem;
+      }
+      p {
+        margin: 0 0 0.9rem;
+        max-width: 48ch;
+      }
+      .lead {
+        font-size: 1.25rem;
+        color: var(--muted);
+      }
+      .tags,
+      .small {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .tags {
+        margin-bottom: 1.1rem;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 500;
+        padding: 0.8rem 1.4rem;
+        border-radius: 999px;
+        text-decoration: none;
+      }
+      .link {
+        color: var(--ink);
+        font-weight: 500;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+        text-decoration-color: var(--accent);
+        margin-right: 1.25rem;
+      }
+      .links {
+        margin-top: 1.25rem;
+      }
+      @media (max-width: 800px) {
+        section,
+        section.r {
+          align-items: flex-end;
+          padding-bottom: 3rem;
+        }
+        .box {
+          background: var(--panel);
+          backdrop-filter: blur(8px);
+          padding: 1.25rem;
+          border-radius: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#top">Pulakita Mitra</a
+      ><span
+        ><a href="#work">Projects</a><a href="#about">About</a
+        ><a href="#contact">Contact</a></span
+      >
+    </nav>
+    <canvas id="c" aria-hidden="true"></canvas>
+
+    <section id="top">
+      <div class="box">
+        <h1>Pulakita Mitra</h1>
+        <p class="lead">
+          B.Tech student in AI &amp; Data Science. I build machine learning
+          models, full-stack apps and hardware that solves real problems.
+        </p>
+        <p class="small">Scroll to explore my projects.</p>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="box">
+        <h2>Green Token</h2>
+        <p class="tags">TypeScript · Next.js · Python · PostgreSQL · Polygon</p>
+        <p>
+          A tamper-proof carbon monitoring, reporting and verification system.
+          It uses drones, sensors and a decentralized blockchain ledger so
+          emissions data can’t be altered.
+        </p>
+        <div class="links">
+          <a class="link" href="https://github.com/PUKUMITRA">See on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="r">
+      <div class="box">
+        <h2>BEAM</h2>
+        <p class="tags">ESP32 · Python · KiCad · Hardware logic</p>
+        <p>
+          A handheld, non-invasive diagnostic tool that estimates bilirubin
+          levels using spectrometry. Co-developed from circuit design to
+          firmware.
+        </p>
+        <div class="links">
+          <a class="link" href="https://github.com/PUKUMITRA">See on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="box">
+        <h2>Wipr</h2>
+        <p class="tags">System security · Data erasure</p>
+        <p>
+          A cross-platform data erasure tool for Windows, Linux and Android. It
+          follows the NIST 800-88 standard for secure media sanitization.
+        </p>
+        <div class="links">
+          <a class="link" href="https://github.com/PUKUMITRA">See on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="r">
+      <div class="box">
+        <h2>AURUM</h2>
+        <p class="tags">IoT · Sensors · OLED display</p>
+        <p>
+          The Advanced Ultraviolet Radiation Utility Meter. It shows real-time
+          UV intensity and a danger index on an OLED screen.
+        </p>
+        <div class="links">
+          <a class="link" href="https://github.com/PUKUMITRA">See on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="box">
+        <h2>About me</h2>
+        <p>
+          I’m passionate about machine learning, data-driven insights and
+          building scalable AI systems. I’m looking for a team that values
+          curiosity, adaptability and measurable impact.
+        </p>
+        <h3>Full Stack MERN Intern, ExcelR</h3>
+        <p class="small">
+          Jul – Aug 2025 · Remote. Built and deployed full-stack apps with
+          MongoDB, Express, React and Node.
+        </p>
+        <h3>AI &amp; ML Trainee, Ardent Computech</h3>
+        <p class="small">
+          Aug 2025 · Kolkata. Python-based AI models and data processing
+          pipelines.
+        </p>
+        <h3>B.Tech CSE (AI &amp; DS), SVIST</h3>
+        <p class="small">
+          Sept 2024 – present · Kolkata. AI fundamentals, data science, software
+          development.
+        </p>
+      </div>
+    </section>
+
+    <section class="r">
+      <div class="box">
+        <h2>Skills &amp; wins</h2>
+        <h3>Languages</h3>
+        <p class="small">
+          Python, Java, C, C++, JavaScript, HTML/CSS, MATLAB, Prolog, VHDL
+        </p>
+        <h3>Stack and tools</h3>
+        <p class="small">
+          React, Express, Node.js, MongoDB, MySQL, GitHub, VS Code, Postman,
+          IntelliJ, Vivado, Figma, Canva
+        </p>
+        <h3>Achievements</h3>
+        <p class="small">
+          2nd and 5th place, Smart India Hackathon 2025 (intra-college).
+          Interdepartmental cricket winner, SVIST Athlezea 2025 and 2026.
+        </p>
+        <h3>Certifications</h3>
+        <p class="small">
+          NPTEL Programming in Java, IIT Kharagpur (Elite, 88%). Digital
+          Productivity with AI (UNICEF). Power of Python in Data Analytics (RKM
+          Vidyamandira).
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="box">
+        <h2>Let’s talk</h2>
+        <p>
+          Open to internships and entry-level roles in AI, data science and
+          full-stack development.
+        </p>
+        <a class="btn" href="mailto:pulakitamitra@gmail.com"
+          >pulakitamitra@gmail.com</a
+        >
+        <div class="links">
+          <a
+            class="link"
+            href="https://linkedin.com/in/pulakita-mitra-307218363"
+            >LinkedIn</a
+          ><a class="link" href="https://github.com/PUKUMITRA">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+    
+  </body>
+</html>
